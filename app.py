@@ -5,7 +5,7 @@ import joblib
 st.set_page_config(page_title="Prediksi Dropout Mahasiswa", layout="wide")
 
 # Load model
-model = joblib.load("C:/Users/Windows 10/Studpen_DataSains2/model/xgb_model")
+model = joblib.load("model/xgb_model.pkl")
 
 # Daftar fitur input (selain Status/Status_num)
 features = [
