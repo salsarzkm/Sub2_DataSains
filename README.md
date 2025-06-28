@@ -1,6 +1,6 @@
 # Proyek Akhir: Menyelesaikan Permasalahan Jaya Jaya Institut
 
-===================================================================================================
+============================================================================================
 
 ## Business Understanding
 
@@ -118,7 +118,7 @@ pip install notebook
 jupyter notebook
 ```
 
-===================================================================================================
+============================================================================================
 
 ## Business Dashboard
 
@@ -127,7 +127,7 @@ Tampilan visual  dapat memungkinkan tim akademik dan manajemen untuk mengambil k
 
 📊 Akses dashboard dapat melalui tautan berikut: [Tautan Dashboard](https://lookerstudio.google.com/reporting/5d1fc55b-b8f9-49c9-af81-6388d0aa7593)
 
-===================================================================================================
+============================================================================================
 
 ## Menjalankan Sistem Machine Learning
 Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
@@ -136,7 +136,7 @@ Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Se
 
 ```
 
-===================================================================================================
+============================================================================================
 
 ## Conclusion
 Jelaskan konklusi dari proyek yang dikerjakan.
