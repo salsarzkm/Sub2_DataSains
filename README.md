@@ -19,14 +19,12 @@ Dropout yang tinggi berpotensi menimbulkan berbagai konsekuensi, seperti:
 - Penurunan reputasi institusi di mata calon mahasiswa dan orang tua,
 - Kehilangan potensi lulusan berkualitas yang seharusnya bisa menjadi bagian dari alumni sukses.
 
-Setelah ditelaah, sehingga perlu adanya sistem prediktif yang mampu mendeteksi mahasiswa yang berisiko tinggi dropout secara otomatis dan akurat. Kedua, sistem dapat menangani kompleksitas data mahasiswa yang berasal dari berbagai sumber, seperti data demografis, akademik, sosial ekonomi, dan administrasi keuangan, serta memberi peringatan dini kepada tenaga pendidik atau manajemen kampus agar bisa melakukan intervensi yang tepat waktu.
+Oleh karena itu, perlu adanya sistem prediktif yang mampu mendeteksi mahasiswa yang berisiko tinggi dropout secara otomatis dan akurat. Kedua, sistem dapat menangani kompleksitas data mahasiswa yang berasal dari berbagai sumber, seperti data demografis, akademik, sosial ekonomi, dan administrasi keuangan, serta memberi peringatan dini kepada tenaga pendidik atau manajemen kampus agar bisa melakukan intervensi yang tepat waktu.
 Di sisi lain, keterbatasan waktu dan jumlah tenaga pendidik membuat proses pemantauan secara manual menjadi tidak efisien dan tidak skalabel. Maka dari itu, Jaya Jaya Institut membutuhkan pendekatan berbasis data yang modern untuk mengatasi permasalahan ini.
 
 ---
 
 ### Tujuan Bisnis
-
-Pihak manajemen Jaya Jaya Institut memiliki tujuan utama untuk:
 
 1. Mengidentifikasi secara dini mahasiswa yang berisiko tinggi untuk dropout.
 2. Memberikan intervensi atau bimbingan khusus terhadap mahasiswa yang terdeteksi berisiko.
