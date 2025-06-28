@@ -1,12 +1,14 @@
 # Proyek Akhir: Menyelesaikan Permasalahan Jaya Jaya Institut
 
+***
+
 ## Business Understanding
 
 Jaya Jaya Institut merupakan institusi pendidikan tinggi yang telah berdiri sejak tahun 2000 dan dikenal memiliki reputasi baik dalam mencetak lulusan berkualitas. Namun, dalam beberapa tahun terakhir, institusi menghadapi tingkat dropout mahasiswa yang cukup tinggi, yang menjadi ancaman serius terhadap citra akademik, efisiensi operasional, serta kualitas pendidikan yang ditawarkan.
 
 Fenomena mahasiswa yang tidak menyelesaikan pendidikannya bukan hanya merugikan dari sisi institusi, tetapi juga berdampak pada masa depan mahasiswa itu sendiri. Penyebab dropout bisa sangat kompleks, melibatkan aspek akademik, sosial, ekonomi, maupun psikologis.
 
----
+___
 
 ### Permasalahan Bisnis
 
@@ -22,7 +24,7 @@ Dropout yang tinggi berpotensi menimbulkan berbagai konsekuensi, seperti:
 Oleh karena itu, perlu adanya sistem prediktif yang mampu mendeteksi mahasiswa yang berisiko tinggi dropout secara otomatis dan akurat. Kedua, sistem dapat menangani kompleksitas data mahasiswa yang berasal dari berbagai sumber, seperti data demografis, akademik, sosial ekonomi, dan administrasi keuangan, serta memberi peringatan dini kepada tenaga pendidik atau manajemen kampus agar bisa melakukan intervensi yang tepat waktu.
 Di sisi lain, keterbatasan waktu dan jumlah tenaga pendidik membuat proses pemantauan secara manual menjadi tidak efisien dan tidak skalabel. Maka dari itu, Jaya Jaya Institut membutuhkan pendekatan berbasis data yang modern untuk mengatasi permasalahan ini.
 
----
+___
 
 ### Tujuan Bisnis
 
@@ -30,7 +32,7 @@ Di sisi lain, keterbatasan waktu dan jumlah tenaga pendidik membuat proses peman
 2. Memberikan intervensi atau bimbingan khusus terhadap mahasiswa yang terdeteksi berisiko.
 3. Meminimalkan tingkat dropout untuk menjaga reputasi dan efisiensi akademik institusi.
 
----
+___
 
 ### Cakupan Proyek
 
@@ -59,7 +61,7 @@ Dataset yang digunakan berisi informasi dari institusi pendidikan tinggi dengan 
 
 **CATATAN: Tidak menggunakan Metabase dalam projek ini, sehingga tidak ada metabase.db.mv.db**
 
----
+___
 
 ### Persiapan
 
@@ -116,6 +118,8 @@ pip install notebook
 jupyter notebook
 ```
 
+***
+
 ## Business Dashboard
 
 Dashboard bisnis ini dibuat menggunakan Looker Studio untuk memvisualisasikan dan menganalisis secara menyeluruh fenomena dropout mahasiswa di Jaya Jaya Institut. Melalui dashboard ini, pengguna dapat memahami pola dan faktor utama yang memengaruhi keputusan mahasiswa untuk tidak melanjutkan studinya.
@@ -123,12 +127,16 @@ Tampilan visual  dapat memungkinkan tim akademik dan manajemen untuk mengambil k
 
 📊 Akses dashboard dapat melalui tautan berikut: [Tautan Dashboard](https://lookerstudio.google.com/reporting/5d1fc55b-b8f9-49c9-af81-6388d0aa7593)
 
+***
+
 ## Menjalankan Sistem Machine Learning
 Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
 
 ```
 
 ```
+
+***
 
 ## Conclusion
 Jelaskan konklusi dari proyek yang dikerjakan.
