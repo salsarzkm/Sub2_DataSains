@@ -1,4 +1,4 @@
-# Proyek Akhir: Menyelesaikan Permasalahan Perusahaan Edutech
+# Proyek Akhir: Menyelesaikan Permasalahan Jaya Jaya Institut
 
 ## Business Understanding
 
@@ -63,7 +63,7 @@ Dataset yang digunakan berisi informasi dari institusi pendidikan tinggi dengan 
 
 ### Persiapan
 
-**Sumber data:**
+#### 👉🏼 Sumber data
 
 Sumber data yang digunakan berasal dari repository GitHub Dicoding Academy, yaitu [dataset Students' Performance](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/README.md). Dataset yang dibuat dari institusi pendidikan tinggi (diperoleh dari beberapa basis data terpisah) yang terkait dengan mahasiswa yang terdaftar di berbagai program studi sarjana, seperti agronomi, desain, pendidikan, keperawatan, jurnalisme, manajemen, layanan sosial, dan teknologi. Dataset ini mencakup informasi yang diketahui pada saat pendaftaran mahasiswa (jalur akademik, demografi, dan faktor sosial-ekonomi) dan kinerja akademik mahasiswa pada akhir semester pertama dan kedua. Data tersebut digunakan untuk membangun model klasifikasi untuk memprediksi tingkat putus sekolah dan keberhasilan akademik siswa.
 
@@ -94,7 +94,7 @@ Berikut adalah deskripsi fitur-fitur yang terdapat dalam dataset:
 -   `Curricular units 1st sem (evaluations)` : Jumlah mata kuliah semester 1 yang diikuti ujian/penilaian. (Numerik)
 -   `Curricular units 1st sem (approved)` : Jumlah mata kuliah semester 1 yang lulus/diterima. (Numerik)
   
-**Setup environment:**
+#### 👉🏼 Setup environment
 
 Dengan Menggunakan Anaconda
 
