@@ -5,6 +5,7 @@ import joblib
 st.set_page_config(page_title="Prediksi Dropout Mahasiswa", layout="wide")
 
 model = joblib.load("model/xgb_model.pkl")
+scaler = joblib.load("model/scaler.pkl")
 
 st.title("🎓 Prediksi Risiko Dropout Mahasiswa")
 
