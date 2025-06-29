@@ -77,6 +77,8 @@ with st.form("dropout_form"):
 # Prediksi
 if submit:
     input_df = pd.DataFrame([input_data])
-    prediction = model.predict(input_df)[0]
+    input_scaled = scaler.transform(input_df)
+
+    prediction = model.predict(input_scaled)[0]
     label = ["Graduate", "Enrolled", "Dropout"][prediction]
     st.success(f"✅ Hasil Prediksi: **{label}**")
