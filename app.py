@@ -4,8 +4,8 @@ import joblib
 
 st.set_page_config(page_title="Prediksi Dropout Mahasiswa", layout="wide")
 
-model = joblib.load("model/xgb_model.pkl")
-scaler = joblib.load("model/scaler.pkl")
+model = joblib.load("model/xgb_pipeline.pkl")
+
 
 st.title("🎓 Prediksi Risiko Dropout Mahasiswa")
 
@@ -75,16 +75,13 @@ with st.form("dropout_form"):
     submit = st.form_submit_button("Prediksi")
 
 # Prediksi
+# pipeline akan otomatis scale dan prediksi
 if submit:
-    input_df = pd.DataFrame([input_data])
+    input_df = pd.DataFrame([input_data]) 
 
-    # Sesuaikan urutan kolom
-    ordered_cols = scaler.feature_names_in_
-    input_df = input_df[ordered_cols]
-
-    # Transformasi
-    input_scaled = scaler.transform(input_df)
-
-    prediction = model.predict(input_scaled)[0]
+    prediction = model.predict(input_df)[0]  
     label = ["Graduate", "Enrolled", "Dropout"][prediction]
     st.success(f"✅ Hasil Prediksi: **{label}**")
+
+
+
