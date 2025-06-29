@@ -77,6 +77,12 @@ with st.form("dropout_form"):
 # Prediksi
 if submit:
     input_df = pd.DataFrame([input_data])
+
+    # Sesuaikan urutan kolom
+    ordered_cols = scaler.feature_names_in_
+    input_df = input_df[ordered_cols]
+
+    # Transformasi
     input_scaled = scaler.transform(input_df)
 
     prediction = model.predict(input_scaled)[0]
