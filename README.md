@@ -47,24 +47,27 @@ Dataset yang digunakan berisi informasi dari institusi pendidikan tinggi dengan 
 
 #### ✅ Langkah-Lankgah
 
-1. Analisis Data Mahasiswa & _Exploratory Data Analysis_ (EDA)
+**1. Analisis Data Mahasiswa & _Exploratory Data Analysis_ (EDA)**
    
    Tahapan awal proyek dimulai dengan eksplorasi menyeluruh terhadap data mahasiswa yang mencakup informasi akademik, demografis, dan sosial-ekonomi. Visualisasi awal terhadap variabel target menunjukkan bahwa mayoritas mahasiswa berstatus Graduate, sementara mahasiswa Dropout dan Enrolled jumlahnya lebih sedikit, mengindikasikan ketidakseimbangan kelas.
    Selanjutnya, dilakukan analisis korelasi numerik terhadap status dropout untuk memahami fitur mana yang paling berkontribusi. Ditemukan bahwa usia saat mendaftar dan status Debtor berkorelasi positif dengan dropout. Sementara itu, nilai akademik yang tinggi, jumlah mata kuliah yang disetujui, pembayaran biaya kuliah tepat waktu, dan status penerima beasiswa menunjukkan korelasi negatif dengan dropout, menandakan faktor-faktor ini berperan penting dalam keberhasilan studi.
    Lalu, Distribusi nilai semester juga dianalisis melalui boxplot, yang mengungkap bahwa mahasiswa Dropout memiliki nilai rata-rata yang jauh lebih rendah di semester 1 dan 2 dibanding mahasiswa Graduate dan Enrolled, memperkuat peran penting kinerja akademik dalam prediksi status akhir.
    Sebagai tambahan, dibuat visualisasi untuk fitur kategorikal (seperti Gender, Marital_status, International, dll) terhadap target Status menggunakan grid plot. Ini memungkinkan pengamatan langsung terhadap pola distribusi dropout berdasarkan kategori, seperti kecenderungan mahasiswa dengan status tidak menikah, internasional, atau displaced untuk memiliki tingkat dropout lebih tinggi.
 
-2. _Preprocessing Data_
+**2. _Preprocessing Data_**
+
    Setelah pemahaman mendalam dari EDA, proses preprocessing dilakukan dengan fitur kategorikal diubah menjadi representasi numerik menggunakan encoding. Tidak lupa dengan penanganan oulier dengan winsorization. Lalu, Karena data target Status sangat tidak seimbang, digunakan metode oversampling SMOTE (Synthetic Minority Oversampling Technique) untuk menyeimbangkan representasi antara kelas mayoritas (Graduate) dan minoritas (Dropout & Enrolled). Ini penting untuk mencegah model bias terhadap kelas mayoritas. Data yang telah diproses dibagi menjadi data latih dan data uji menggunakan stratifikasi, agar distribusi kelas target tetap proporsional dalam evaluasi. 
 
-3. Pembangunan Model Prediktif
+**3. Pembangunan Model Prediktif**
    
    Model prediksi dikembangkan menggunakan algoritma XGBoost Classifier, yang dikenal sangat efektif dalam menangani dataset yang tidak seimbang serta memiliki kemampuan generalisasi yang baik. Pipeline Scikit-Learn digunakan untuk menggabungkan preprocessing (scaling) dan modeling, sehingga prosesnya lebih modular dan terstandardisasi. Model dilatih menggunakan data hasil SMOTE dan diuji menggunakan data uji asli (tanpa resampling), untuk mendapatkan evaluasi yang merefleksikan situasi nyata.
 
-4. Evaluasi Kinerja Model
+**4. Evaluasi Kinerja Model**
+
    Mengevaluasi performa model dengan metrik seperti accuracy, precision, recall, f1-score, dan confusion matrix, dengan fokus utama pada kemampuan mendeteksi mahasiswa dropout.
    
-6. Visualisasi & Dashboard
+**6. Visualisasi & Dashboard**
+
    Untuk mendukung pengambilan keputusan berbasis data, dikembangkan:
    - Visualisasi interaktif dengan Streamlit, yang memungkinkan pengguna kampus (non-teknis) melakukan input data mahasiswa dan melihat prediksi status akhir secara langsung.
    - Dashboard bisnis menggunakan Google Looker Studio, yang menyajikan visual ringkasan seperti Distribusi mahasiswa berdasarkan status akhir, Faktor-faktor dominan yang memengaruhi dropout, serta Statistik berdasarkan program studi, waktu kuliah, dan status beasiswa
@@ -161,8 +164,10 @@ streamlit run app.py
 
 Adapun tampilan streamlit cloud dapat dilihat sebagai berikut:
 
+**Hasil tampilan depan**
 <img width="927" alt="contoh_dashboard1" src="https://github.com/user-attachments/assets/1f99345a-34db-4f49-a44e-d645640c5141" />
 
+**Hasil tampilan akhir prediksi setelah input seluruh data**
 <img width="924" alt="contoh_dashboard2" src="https://github.com/user-attachments/assets/368ad937-7867-4a4e-a5a9-9213129cb079" />
 
 ============================================================================================
