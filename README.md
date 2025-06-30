@@ -71,7 +71,6 @@ Dataset yang digunakan berisi informasi dari institusi pendidikan tinggi dengan 
    Untuk mendukung pengambilan keputusan berbasis data, dikembangkan:
    - Visualisasi interaktif dengan Streamlit, yang memungkinkan pengguna kampus (non-teknis) melakukan input data mahasiswa dan melihat prediksi status akhir secara langsung.
    - Dashboard bisnis menggunakan Google Looker Studio, yang menyajikan visual ringkasan seperti Distribusi mahasiswa berdasarkan status akhir, Faktor-faktor dominan yang memengaruhi dropout, serta Statistik berdasarkan program studi, waktu kuliah, dan status beasiswa
-   - Dashboard ini memungkinkan manajemen kampus untuk memantau tren dropout secara berkelanjutan dan membuat kebijakan berbasis data yang lebih tajam.
 
 **CATATAN: Tidak menggunakan Metabase dalam projek ini, sehingga tidak ada metabase.db.mv.db**
 
@@ -162,7 +161,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Adapun tampilan streamlit cloud dapat dilihat sebagai berikut:
+⏩ Adapun tampilan streamlit cloud dapat dilihat sebagai berikut:
 
 **Hasil tampilan depan**
 <img width="927" alt="contoh_dashboard1" src="https://github.com/user-attachments/assets/1f99345a-34db-4f49-a44e-d645640c5141" />
