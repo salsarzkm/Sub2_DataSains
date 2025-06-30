@@ -1,6 +1,6 @@
 # Proyek Akhir: Menyelesaikan Permasalahan Jaya Jaya Institut
 
-============================================================================================
+---
 
 ## Business Understanding
 
@@ -132,7 +132,7 @@ pip install notebook
 jupyter notebook
 ```
 
-============================================================================================
+---
 
 ## Business Dashboard
 
@@ -140,7 +140,7 @@ Dashboard ini bertujuan untuk membantu institusi memahami karakteristik dan perf
 
 📊 Akses dashboard dapat melalui tautan berikut: [Tautan Dashboard](https://lookerstudio.google.com/reporting/5d1fc55b-b8f9-49c9-af81-6388d0aa7593)
 
-============================================================================================
+---
 
 ## Menjalankan Sistem Machine Learning
 
@@ -170,7 +170,7 @@ Adapun tampilan streamlit cloud dapat dilihat sebagai berikut:
 **Hasil tampilan akhir prediksi setelah input seluruh data**
 <img width="924" alt="contoh_dashboard2" src="https://github.com/user-attachments/assets/368ad937-7867-4a4e-a5a9-9213129cb079" />
 
-============================================================================================
+---
 
 ## Conclusion
 
