@@ -47,17 +47,28 @@ Dataset yang digunakan berisi informasi dari institusi pendidikan tinggi dengan 
 
 #### ✅ Langkah-Lankgah
 
-1. Analisis Data Mahasiswa
-   Melakukan eksplorasi menyeluruh terhadap data mahasiswa yang mencakup informasi akademik, demografis, dan sosial-ekonomi.
-2. Prediksi Status Mahasiswa
-   Membangun model klasifikasi machine learning untuk memprediksi status akhir mahasiswa:
-   `Dropout:` Mahasiswa yang keluar sebelum lulus
-   `Enrolled:` Mahasiswa yang masih aktif
-   `Graduate:` Mahasiswa yang telah lulus
-3. Evaluasi Kinerja Model
+1. Analisis Data Mahasiswa & _Exploratory Data Analysis_ (EDA)
+   
+   Tahapan awal proyek dimulai dengan eksplorasi menyeluruh terhadap data mahasiswa yang mencakup informasi akademik, demografis, dan sosial-ekonomi. Visualisasi awal terhadap variabel target menunjukkan bahwa mayoritas mahasiswa berstatus Graduate, sementara mahasiswa Dropout dan Enrolled jumlahnya lebih sedikit, mengindikasikan ketidakseimbangan kelas.
+   Selanjutnya, dilakukan analisis korelasi numerik terhadap status dropout untuk memahami fitur mana yang paling berkontribusi. Ditemukan bahwa usia saat mendaftar dan status Debtor berkorelasi positif dengan dropout. Sementara itu, nilai akademik yang tinggi, jumlah mata kuliah yang disetujui, pembayaran biaya kuliah tepat waktu, dan status penerima beasiswa menunjukkan korelasi negatif dengan dropout, menandakan faktor-faktor ini berperan penting dalam keberhasilan studi.
+   Lalu, Distribusi nilai semester juga dianalisis melalui boxplot, yang mengungkap bahwa mahasiswa Dropout memiliki nilai rata-rata yang jauh lebih rendah di semester 1 dan 2 dibanding mahasiswa Graduate dan Enrolled, memperkuat peran penting kinerja akademik dalam prediksi status akhir.
+   Sebagai tambahan, dibuat visualisasi untuk fitur kategorikal (seperti Gender, Marital_status, International, dll) terhadap target Status menggunakan grid plot. Ini memungkinkan pengamatan langsung terhadap pola distribusi dropout berdasarkan kategori, seperti kecenderungan mahasiswa dengan status tidak menikah, internasional, atau displaced untuk memiliki tingkat dropout lebih tinggi.
+
+2. _Preprocessing Data_
+   Setelah pemahaman mendalam dari EDA, proses preprocessing dilakukan dengan fitur kategorikal diubah menjadi representasi numerik menggunakan encoding. Tidak lupa dengan penanganan oulier dengan winsorization. Lalu, Karena data target Status sangat tidak seimbang, digunakan metode oversampling SMOTE (Synthetic Minority Oversampling Technique) untuk menyeimbangkan representasi antara kelas mayoritas (Graduate) dan minoritas (Dropout & Enrolled). Ini penting untuk mencegah model bias terhadap kelas mayoritas. Data yang telah diproses dibagi menjadi data latih dan data uji menggunakan stratifikasi, agar distribusi kelas target tetap proporsional dalam evaluasi. 
+
+3. Pembangunan Model Prediktif
+   
+   Model prediksi dikembangkan menggunakan algoritma XGBoost Classifier, yang dikenal sangat efektif dalam menangani dataset yang tidak seimbang serta memiliki kemampuan generalisasi yang baik. Pipeline Scikit-Learn digunakan untuk menggabungkan preprocessing (scaling) dan modeling, sehingga prosesnya lebih modular dan terstandardisasi. Model dilatih menggunakan data hasil SMOTE dan diuji menggunakan data uji asli (tanpa resampling), untuk mendapatkan evaluasi yang merefleksikan situasi nyata.
+
+4. Evaluasi Kinerja Model
    Mengevaluasi performa model dengan metrik seperti accuracy, precision, recall, f1-score, dan confusion matrix, dengan fokus utama pada kemampuan mendeteksi mahasiswa dropout.
-4. Visualisasi & Dashboard
-   Menyediakan visualisasi interaktif dan dashboard (menggunakan tools seperti Streamlit) agar pihak manajemen dapat memantau performa mahasiswa dengan mudah.
+   
+6. Visualisasi & Dashboard
+   Untuk mendukung pengambilan keputusan berbasis data, dikembangkan:
+   - Visualisasi interaktif dengan Streamlit, yang memungkinkan pengguna kampus (non-teknis) melakukan input data mahasiswa dan melihat prediksi status akhir secara langsung.
+   - Dashboard bisnis menggunakan Google Looker Studio, yang menyajikan visual ringkasan seperti Distribusi mahasiswa berdasarkan status akhir, Faktor-faktor dominan yang memengaruhi dropout, serta Statistik berdasarkan program studi, waktu kuliah, dan status beasiswa
+   - Dashboard ini memungkinkan manajemen kampus untuk memantau tren dropout secara berkelanjutan dan membuat kebijakan berbasis data yang lebih tajam.
 
 **CATATAN: Tidak menggunakan Metabase dalam projek ini, sehingga tidak ada metabase.db.mv.db**
 
@@ -108,7 +119,7 @@ cd C:\Users\Windows 10\Studpen_DataSains2
 conda create -n student-env python=3.9
 
 # Aktifkan environment
-conda activate attrition-env
+conda activate student-env
 
 # Install library dari requirements.txt
 pip install -r requirements.txt
@@ -122,28 +133,74 @@ jupyter notebook
 
 ## Business Dashboard
 
-Dashboard bisnis ini dibuat menggunakan Looker Studio untuk memvisualisasikan dan menganalisis secara menyeluruh fenomena dropout mahasiswa di Jaya Jaya Institut. Melalui dashboard ini, pengguna dapat memahami pola dan faktor utama yang memengaruhi keputusan mahasiswa untuk tidak melanjutkan studinya.
-Tampilan visual  dapat memungkinkan tim akademik dan manajemen untuk mengambil keputusan berbasis data dalam pemberian intervensi atau bimbingan, menyusun kebijakan akademik dan keuangan yang lebih tepat sasaran, dan memantau performa dan kemajuan mahasiswa secara berkelanjutan.
+Dashboard ini bertujuan untuk membantu institusi memahami karakteristik dan performa mahasiswa berdasarkan status akhir mereka (Dropout, Enrolled, Graduate), serta membantu monitoring dan pengambilan keputusan berbasis data. Tampilan visual  dapat memungkinkan tim akademik dan manajemen untuk mengambil keputusan berbasis data dalam pemberian intervensi atau bimbingan, menyusun kebijakan akademik dan keuangan yang lebih tepat sasaran, dan memantau performa dan kemajuan mahasiswa secara berkelanjutan.
 
 📊 Akses dashboard dapat melalui tautan berikut: [Tautan Dashboard](https://lookerstudio.google.com/reporting/5d1fc55b-b8f9-49c9-af81-6388d0aa7593)
 
 ============================================================================================
 
 ## Menjalankan Sistem Machine Learning
-Jelaskan cara menjalankan protoype sistem machine learning yang telah dibuat. Selain itu, sertakan juga link untuk mengakses prototype tersebut.
+
+Proyek ini merupakan solusi machine learning untuk memprediksi risiko dropout mahasiswa berdasarkan berbagai karakteristik pribadi dan akademik. Sistem dibangun menggunakan model XGBoost dan ditampilkan melalui aplikasi web interaktif menggunakan Streamlit.
+
+⏩ Prototype ini juga telah berhasil di-_deploy_ dan dapat diakses secara online melalui _(Community Cloud)_ , dimana tidak memerlukan install apapun dan cukup buka link di browser melalui : [Tautan Streamlit](https://sub2datasains-ya7q4un2rthpxhzmjfnveg.streamlit.app/)
+
+⏩ Untuk menjalankan aplikasi/prototype secara lokal di komputer, dapat dilakukan dengan:
 
 ```
+# Clone repo
+git clone https://github.com/salsarzkm/Sub2_DataSains.git
+cd Sub2_DataSains
 
+# Install dependency
+pip install -r requirements.txt
+
+# Jalankan aplikasi Streamlit
+streamlit run app.py
 ```
+
+Adapun tampilan streamlit cloud dapat dilihat sebagai berikut:
+
+<img width="927" alt="contoh_dashboard1" src="https://github.com/user-attachments/assets/1f99345a-34db-4f49-a44e-d645640c5141" />
+
+<img width="924" alt="contoh_dashboard2" src="https://github.com/user-attachments/assets/368ad937-7867-4a4e-a5a9-9213129cb079" />
 
 ============================================================================================
 
 ## Conclusion
-Jelaskan konklusi dari proyek yang dikerjakan.
+
+![distribusi_status_siswa](https://github.com/user-attachments/assets/73d01eae-8c88-4821-97cf-6c1e5bd5ae93)
+
+Berdasarkan grafik, terlihat bahwa status "Graduate" memiliki jumlah siswa terbanyak, yaitu di atas 2000. Status "Dropout" menempati posisi kedua dengan jumlah siswa sekitar 1400. Sementara itu, status "Enrolled" memiliki jumlah siswa paling sedikit, yaitu di bawah 1000.
+
+![10_korelasi_negatif](https://github.com/user-attachments/assets/215c6e9f-75d8-4748-863b-fe5c1dc1e450)
+![10_korelasi_positif](https://github.com/user-attachments/assets/e881b5b5-cc1f-430c-819e-6e1398fcd932)
+
+Analisis korelasi menunjukkan bahwa usia pendaftaran dan status debitur berkorelasi positif kuat dengan dropout. Sebaliknya, kinerja akademik yang baik (nilai dan unit mata kuliah yang disetujui) memiliki korelasi negatif yang sangat kuat, menunjukkan pentingnya nilai dalam mencegah dropout. Faktor lain seperti pembayaran biaya kuliah tepat waktu dan menjadi penerima beasiswa juga berkorelasi negatif, sehingga dapat mengurangi kemungkinan dropout. Secara keseluruhan, faktor finansial, demografi, dan terutama kinerja akademik adalah pendorong utama status dropout.
+
+![distribusi_nilai](https://github.com/user-attachments/assets/2a0e5de1-7cc3-4158-8099-7027fbd45fe0)
+
+Berdasarkan box plot distribusi nilai, mahasiswa yang mengalami dropout menunjukkan nilai rata-rata yang jauh lebih rendah di semester 1 dan 2 dibandingkan dengan mahasiswa graduate dan enrolled. Mahasiswa graduate memiliki nilai rata-rata tertinggi di kedua semester, diikuti oleh mahasiswa enrolled. Hal ini secara jelas menunjukkan bahwa kinerja akademik yang buruk, terutama nilai yang rendah, adalah indikator kuat risiko dropout.
+
+![kategori_vs_status](https://github.com/user-attachments/assets/26de8f00-55ba-45d1-9f59-0d752016db89)
+
+Visualisasi ini menunjukkan distribusi status mahasiswa (Dropout, Enrolled, Graduate) berdasarkan berbagai fitur kategorikal. Beberapa kategori fitur lain cenderung memiliki proporsi mahasiswa graduate atau enrolled yang lebih tinggi, mengindikasikan hubungan penting antara fitur kategorikal ini dengan keberhasilan atau kegagalan akademik. Analisis ini membantu mengidentifikasi karakteristik demografi atau latar belakang yang mungkin menjadi faktor risiko atau pelindung terhadap dropout.
 
 ---
 
 ### Rekomendasi Action Items
-Berikan beberapa rekomendasi action items yang harus dilakukan perusahaan guna menyelesaikan permasalahan atau mencapai target mereka.
-- action item 1
-- action item 2
+
+🎯 **A. Intervensi Berdasarkan Kinerja Akademik**
+   1. Program Remedial dan Bimbingan Belajar → Sediakan kelas tambahan, remedial, atau tutor sebaya untuk mahasiswa dengan nilai rendah pada semester 1 dan 2.
+   2. Sistem Peringatan Dini (Early Warning System) → Bangun sistem yang mendeteksi mahasiswa dengan nilai semester awal rendah, lalu berikan intervensi akademik sejak dini.
+   3. Evaluasi Kurikulum & Dosen Pengampu → Tinjau ulang mata kuliah yang paling sering tidak lulus atau memiliki tingkat kegagalan tinggi, khususnya di program studi dengan dropout tinggi seperti Manajemen (9147 dan 9991).
+
+💰 **B. Intervensi Berdasarkan Faktor Finansial**
+1. Perluas Akses Beasiswa & Bantuan Finansial → Tingkatkan cakupan beasiswa karena terbukti menjadi pelindung signifikan terhadap dropout.
+2. Program Cicilan atau Relaksasi Pembayaran → Berikan opsi pembayaran bertahap atau fleksibel agar mahasiswa tidak merasa terbebani, terutama yang bukan penerima beasiswa.
+3. Edukasi Literasi Finansial
+→ Adakan pelatihan keuangan dasar bagi mahasiswa agar dapat mengelola biaya kuliah dan kebutuhan akademik lainnya.
+
+🧭 **C. Intervensi Berdasarkan Program Studi**
+1. Audit Program Studi dengan Dropout Tinggi → Lakukan audit menyeluruh terhadap program Manajemen (9147 & 9991) untuk mengidentifikasi penyebab dropout tinggi: beban kurikulum, metode ajar, waktu kuliah, dsb.
+2. Peningkatan Fasilitas untuk Kelas Malam → Sediakan dukungan infrastruktur dan akademik setara untuk kelas malam agar tidak tertinggal dibanding kelas reguler.
